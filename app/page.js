@@ -103,9 +103,21 @@ export default function Home() {
       {/* Header with Horror Title */}
       <div className="relative z-10 pt-6 pb-4 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="font-nosifer text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-2 text-[#8B0000]
-          drop-shadow-[0_0_15px_rgba(139,0,0,0.8)] drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)]"
-          style={{letterSpacing: '0.05em', textShadow: '0 0 20px rgba(139,0,0,0.8), 0 0 30px rgba(255,0,0,0.4), 2px 2px 4px rgba(0,0,0,0.8)'}}>
+          <h1 className="font-nosifer text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-2"
+          style={{
+            color: '#DC143C',
+            letterSpacing: '0.08em',
+            textShadow: `
+              0 0 10px rgba(220, 20, 60, 0.8),
+              0 0 20px rgba(220, 20, 60, 0.6),
+              0 0 30px rgba(255, 0, 0, 0.4),
+              0 0 40px rgba(139, 0, 0, 0.3),
+              2px 2px 4px rgba(0, 0, 0, 0.9),
+              0 -2px 8px rgba(220, 20, 60, 0.5)
+            `,
+            filter: 'drop-shadow(0 2px 10px rgba(220, 20, 60, 0.5))',
+            WebkitTextStroke: '1px rgba(139, 0, 0, 0.3)'
+          }}>
             KARANG JIWO
           </h1>
           <p className="text-gray-400 text-xs sm:text-sm font-light tracking-wide">
