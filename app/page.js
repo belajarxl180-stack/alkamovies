@@ -100,7 +100,7 @@ export default function Home() {
           bg-gradient-to-b from-red-600 to-black bg-clip-text text-transparent
           drop-shadow-[0_2px_10px_rgba(255,77,77,0.3)]"
           style={{letterSpacing: '0.02em', fontWeight: '400'}}>
-            ALKAMOVIES
+            KARANG JIWO
           </h1>
           <p className="text-gray-400 text-xs sm:text-sm font-light tracking-wide">
             Portal Misteri & Penampakan
@@ -202,7 +202,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="relative z-10 border-t border-white/10 bg-horror-dark/50 backdrop-blur-sm py-8">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-white/60 mb-2">© 2025 ALKAMOVIES - Portal Video Misteri & Penampakan</p>
+          <p className="text-white/60 mb-2">© 2025 KARANG JIWO - Portal Video Misteri & Penampakan</p>
           <p className="text-white/40 text-sm">Powered by YouTube Data API v3 🔥</p>
         </div>
       </footer>

@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "ALKAMOVIES - Portal Video Penampakan & Misteri",
+  title: "KARANG JIWO - Portal Video Penampakan & Misteri",
   description: "Agregator video YouTube untuk konten penampakan, misteri, dan urban legend. Koleksi video horror terlengkap dari seluruh Indonesia.",
   keywords: "penampakan, hantu, misteri, urban legend, horror, pocong, kuntilanak, video seram",
 };
