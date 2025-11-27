@@ -95,14 +95,14 @@ export default function Home() {
 
       {/* Header with Horror Title */}
       <div className="relative z-10 pt-12 pb-8 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="font-creepster text-6xl md:text-7xl lg:text-8xl text-center mb-4
-          bg-gradient-to-r from-horror-orange via-red-600 to-horror-orange bg-clip-text text-transparent
-          drop-shadow-[0_0_30px_rgba(255,106,0,0.5)] animate-pulse">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="font-nosifer text-5xl md:text-6xl lg:text-7xl mb-2
+          text-white drop-shadow-[0_0_30px_rgba(255,77,77,0.5)]"
+          style={{letterSpacing: '0.1em'}}>
             ALKAMOVIES
           </h1>
-          <p className="text-center text-white/60 text-lg md:text-xl font-light tracking-widest">
-            👁️ PORTAL MISTERI & PENAMPAKAN 👁️
+          <p className="text-gray-400 text-sm md:text-base font-light tracking-wide">
+            Portal Misteri & Penampakan
           </p>
         </div>
       </div>
@@ -110,21 +110,22 @@ export default function Home() {
       {/* Search Bar */}
       <div className="relative z-10 px-6 mb-8">
         <div className="max-w-3xl mx-auto">
-          <form onSubmit={handleSearch} className="relative">
+          <form onSubmit={handleSearch} className="relative flex gap-2">
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="🔍 Cari penampakan, misteri, urban legend..."
-              className="w-full px-6 py-4 bg-horror-dark/80 backdrop-blur-sm border-2 border-white/10 
-              rounded-xl text-white placeholder-white/40 focus:border-horror-orange focus:outline-none
-              focus:shadow-horror-glow transition-all duration-300"
+              className="flex-1 px-4 h-10 bg-[#2c2c2c] border border-[#444] 
+              rounded-lg text-white placeholder-gray-500 focus:border-[#ff4d4d] focus:outline-none
+              transition-all duration-200"
+              style={{maxWidth: '500px', margin: '0 auto', width: '60%'}}
             />
             <button
               type="submit"
-              className="absolute right-2 top-1/2 -translate-y-1/2 px-6 py-2 bg-horror-orange 
-              rounded-lg font-semibold hover:bg-horror-orange/80 hover:shadow-horror-glow
-              transition-all duration-300"
+              className="px-6 h-10 bg-[#ff4d4d] 
+              rounded-lg font-semibold hover:bg-[#ff3333]
+              transition-all duration-200"
             >
               CARI
             </button>
