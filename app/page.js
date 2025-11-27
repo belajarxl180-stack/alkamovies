@@ -43,6 +43,13 @@ export default function Home() {
     fetch(url)
       .then(res => res.json())
       .then(data => {
+        console.log('API Response:', data); // Debug
+        
+        if (data.error) {
+          console.error('API Error:', data.error, data.details);
+          alert('Error: ' + (data.error || 'Gagal memuat video. Cek console untuk detail.'));
+        }
+        
         if (append) {
           setVideos(prev => [...prev, ...(data.items || [])]);
         } else {
@@ -54,6 +61,7 @@ export default function Home() {
       })
       .catch(err => {
         console.error("Error fetching videos:", err);
+        alert('Network error: ' + err.message);
         setLoading(false);
       });
   };
