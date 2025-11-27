@@ -111,7 +111,7 @@ export default function Home() {
       {/* Search Bar */}
       <div className="relative z-10 px-4 mb-6">
         <div className="max-w-3xl mx-auto">
-          <form onSubmit={handleSearch} className="flex gap-2 w-full">
+          <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-2 w-full">
             <input
               type="text"
               value={searchQuery}
@@ -123,9 +123,9 @@ export default function Home() {
             />
             <button
               type="submit"
-              className="px-4 sm:px-6 h-10 bg-[#ff4d4d] text-sm sm:text-base
+              className="w-full sm:w-auto px-4 sm:px-6 h-10 bg-[#ff4d4d] text-sm sm:text-base
               rounded-lg font-semibold hover:bg-[#ff3333]
-              transition-all duration-200 whitespace-nowrap"
+              transition-all duration-200"
             >
               CARI
             </button>
