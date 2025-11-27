@@ -94,14 +94,15 @@ export default function Home() {
       </div>
 
       {/* Header with Horror Title */}
-      <div className="relative z-10 pt-8 pb-6 px-4">
+      <div className="relative z-10 pt-6 pb-4 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="font-nosifer text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-2
-          text-white drop-shadow-[0_0_20px_rgba(255,77,77,0.5)]"
-          style={{letterSpacing: '0.05em'}}>
+          <h1 className="font-nosifer text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2
+          bg-gradient-to-b from-red-600 to-black bg-clip-text text-transparent
+          drop-shadow-[0_2px_10px_rgba(255,77,77,0.3)]"
+          style={{letterSpacing: '0.02em', fontWeight: '400'}}>
             ALKAMOVIES
           </h1>
-          <p className="text-gray-400 text-xs sm:text-sm md:text-base font-light tracking-wide">
+          <p className="text-gray-400 text-xs sm:text-sm font-light tracking-wide">
             Portal Misteri & Penampakan
           </p>
         </div>
@@ -154,12 +155,12 @@ export default function Home() {
       </div>
 
       {/* Section Title */}
-      <div className="relative z-10 px-4 mb-6">
+      <div className="relative z-10 px-4 mb-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="font-bold text-xl sm:text-2xl md:text-3xl text-[#ff4d4d] drop-shadow-lg">
-            {searchQuery ? `📹 Hasil: "${searchQuery}"` : `🔥 ${selectedCategory.name}`}
+          <h2 className="font-semibold text-lg sm:text-xl md:text-2xl text-[#ff4d4d] drop-shadow-md">
+            {searchQuery ? `📹 Hasil: "${searchQuery}"` : `${selectedCategory.name}`}
           </h2>
-          <div className="h-0.5 w-20 bg-gradient-to-r from-[#ff4d4d] to-transparent mt-2 rounded-full"></div>
+          <div className="h-0.5 w-16 bg-gradient-to-r from-[#ff4d4d] to-transparent mt-2 rounded-full"></div>
         </div>
       </div>
 
