@@ -13,7 +13,8 @@ export async function GET(request) {
     );
   }
 
-  let url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=video&videoDuration=medium&maxResults=${maxResults}&q=${encodeURIComponent(query)}&key=${apiKey}`;
+  // Simplified URL - remove videoDuration parameter that might cause issues
+  let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=${maxResults}&q=${encodeURIComponent(query)}&key=${apiKey}`;
   
   if (pageToken) {
     url += `&pageToken=${pageToken}`;
