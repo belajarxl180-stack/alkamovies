@@ -94,38 +94,37 @@ export default function Home() {
       </div>
 
       {/* Header with Horror Title */}
-      <div className="relative z-10 pt-12 pb-8 px-6">
+      <div className="relative z-10 pt-8 pb-6 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="font-nosifer text-5xl md:text-6xl lg:text-7xl mb-2
-          text-white drop-shadow-[0_0_30px_rgba(255,77,77,0.5)]"
-          style={{letterSpacing: '0.1em'}}>
+          <h1 className="font-nosifer text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-2
+          text-white drop-shadow-[0_0_20px_rgba(255,77,77,0.5)]"
+          style={{letterSpacing: '0.05em'}}>
             ALKAMOVIES
           </h1>
-          <p className="text-gray-400 text-sm md:text-base font-light tracking-wide">
+          <p className="text-gray-400 text-xs sm:text-sm md:text-base font-light tracking-wide">
             Portal Misteri & Penampakan
           </p>
         </div>
       </div>
 
       {/* Search Bar */}
-      <div className="relative z-10 px-6 mb-8">
+      <div className="relative z-10 px-4 mb-6">
         <div className="max-w-3xl mx-auto">
-          <form onSubmit={handleSearch} className="relative flex gap-2">
+          <form onSubmit={handleSearch} className="flex gap-2 w-full">
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="🔍 Cari penampakan, misteri, urban legend..."
-              className="flex-1 px-4 h-10 bg-[#2c2c2c] border border-[#444] 
-              rounded-lg text-white placeholder-gray-500 focus:border-[#ff4d4d] focus:outline-none
+              placeholder="🔍 Cari video..."
+              className="flex-1 px-3 h-10 bg-[#2c2c2c] border border-[#444] 
+              rounded-lg text-white text-sm placeholder-gray-500 focus:border-[#ff4d4d] focus:outline-none
               transition-all duration-200"
-              style={{maxWidth: '500px', margin: '0 auto', width: '60%'}}
             />
             <button
               type="submit"
-              className="px-6 h-10 bg-[#ff4d4d] 
+              className="px-4 sm:px-6 h-10 bg-[#ff4d4d] text-sm sm:text-base
               rounded-lg font-semibold hover:bg-[#ff3333]
-              transition-all duration-200"
+              transition-all duration-200 whitespace-nowrap"
             >
               CARI
             </button>
@@ -134,17 +133,17 @@ export default function Home() {
       </div>
 
       {/* Categories */}
-      <div className="relative z-10 px-6 mb-10">
+      <div className="relative z-10 px-4 mb-6">
         <div className="max-w-7xl mx-auto">
-          <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide">
+          <div className="flex gap-2 overflow-x-auto pb-3 scrollbar-hide">
             {CATEGORIES.map((category) => (
               <button
                 key={category.id}
                 onClick={() => handleCategoryClick(category)}
-                className={`px-6 py-3 rounded-full font-semibold whitespace-nowrap transition-all duration-300
+                className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200
                 ${selectedCategory.id === category.id
-                  ? 'bg-horror-orange text-white shadow-horror-glow scale-105'
-                  : 'bg-horror-dark/60 text-white/70 hover:bg-horror-dark hover:text-white border border-white/10'
+                  ? 'bg-[#ff4d4d] text-white'
+                  : 'bg-[#2c2c2c] text-gray-300 hover:bg-[#3c3c3c] border border-[#444]'
                 }`}
               >
                 {category.name}
@@ -155,17 +154,17 @@ export default function Home() {
       </div>
 
       {/* Section Title */}
-      <div className="relative z-10 px-6 mb-8">
+      <div className="relative z-10 px-4 mb-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="font-eater text-3xl md:text-4xl text-horror-orange drop-shadow-[0_0_20px_rgba(255,106,0,0.4)]">
+          <h2 className="font-bold text-xl sm:text-2xl md:text-3xl text-[#ff4d4d] drop-shadow-lg">
             {searchQuery ? `📹 Hasil: "${searchQuery}"` : `🔥 ${selectedCategory.name}`}
           </h2>
-          <div className="h-1 w-32 bg-gradient-to-r from-horror-orange to-transparent mt-3 rounded-full"></div>
+          <div className="h-0.5 w-20 bg-gradient-to-r from-[#ff4d4d] to-transparent mt-2 rounded-full"></div>
         </div>
       </div>
 
       {/* Videos Grid */}
-      <div className="relative z-10 px-6 pb-20">
+      <div className="relative z-10 px-4 pb-16">
         <div className="max-w-7xl mx-auto">
           {videos.length === 0 && !loading ? (
             <div className="text-center py-20">
