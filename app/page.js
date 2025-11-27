@@ -67,6 +67,13 @@ export default function Home() {
 
   useEffect(() => {
     fetchVideos(selectedCategory.query);
+    
+    // Register service worker for PWA
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then((registration) => console.log('SW registered:', registration))
+        .catch((error) => console.log('SW registration failed:', error));
+    }
   }, []);
 
   const handleCategoryClick = (category) => {
@@ -96,10 +103,9 @@ export default function Home() {
       {/* Header with Horror Title */}
       <div className="relative z-10 pt-6 pb-4 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="font-nosifer text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2
-          bg-gradient-to-b from-red-600 to-black bg-clip-text text-transparent
-          drop-shadow-[0_2px_10px_rgba(255,77,77,0.3)]"
-          style={{letterSpacing: '0.02em', fontWeight: '400'}}>
+          <h1 className="font-nosifer text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-2 text-[#8B0000]
+          drop-shadow-[0_0_15px_rgba(139,0,0,0.8)] drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)]"
+          style={{letterSpacing: '0.05em', textShadow: '0 0 20px rgba(139,0,0,0.8), 0 0 30px rgba(255,0,0,0.4), 2px 2px 4px rgba(0,0,0,0.8)'}}>
             KARANG JIWO
           </h1>
           <p className="text-gray-400 text-xs sm:text-sm font-light tracking-wide">

@@ -1,0 +1,5 @@
+<svg width="192" height="192" xmlns="http://www.w3.org/2000/svg">
+  <rect width="192" height="192" fill="#0B0B0D"/>
+  <text x="96" y="120" font-family="serif" font-size="60" font-weight="bold" fill="#8B0000" text-anchor="middle" style="text-shadow: 0 0 10px rgba(139,0,0,0.8), 0 0 20px rgba(255,0,0,0.4);">KJ</text>
+  <circle cx="96" cy="96" r="80" fill="none" stroke="#8B0000" stroke-width="3" opacity="0.3"/>
+</svg>
