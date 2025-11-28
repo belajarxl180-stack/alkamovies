@@ -167,8 +167,8 @@ export default function Home() {
       )}
 
       {/* Header with Horror Title */}
-      <div className="relative z-10 pt-6 pb-4 px-4">
-        <div className="max-w-7xl mx-auto text-center">
+      <div className="relative z-10 pt-8 sm:pt-12 pb-6 px-3 sm:px-4">
+        <div className="w-full max-w-7xl mx-auto text-center">
           <h1 className="font-nosifer text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-2"
           style={{
             color: '#DC143C',
@@ -193,8 +193,8 @@ export default function Home() {
       </div>
 
       {/* Search Bar */}
-      <div className="relative z-10 px-4 mb-6">
-        <div className="max-w-3xl mx-auto">
+      <div className="relative z-10 px-3 sm:px-4 mb-6">
+        <div className="w-full max-w-3xl mx-auto">
           <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-2 w-full">
             <input
               type="text"
@@ -239,8 +239,8 @@ export default function Home() {
       </div>
 
       {/* Section Title */}
-      <div className="relative z-10 px-4 mb-4">
-        <div className="max-w-7xl mx-auto">
+      <div className="relative z-10 px-3 sm:px-4 mb-4">
+        <div className="w-full max-w-7xl mx-auto">
           <h2 className="font-semibold text-lg sm:text-xl md:text-2xl text-[#ff4d4d] drop-shadow-md">
             {searchQuery ? `📹 Hasil: "${searchQuery}"` : `${selectedCategory.name}`}
           </h2>
@@ -249,8 +249,8 @@ export default function Home() {
       </div>
 
       {/* Videos Grid */}
-      <div className="relative z-10 px-4 pb-16">
-        <div className="max-w-7xl mx-auto">
+      <div className="relative z-10 px-2 sm:px-4 pb-16">
+        <div className="w-full max-w-7xl mx-auto">
           {videos.length === 0 && !loading ? (
             <div className="text-center py-20">
               <p className="text-4xl mb-4">👻</p>
@@ -258,7 +258,7 @@ export default function Home() {
               <p className="text-white/40 mt-2">Coba kata kunci lain</p>
             </div>
           ) : (
-            <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            <div className="grid gap-2 sm:gap-4 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
               {videos.map((video, index) => {
                 if (videos.length === index + 1) {
                   return (

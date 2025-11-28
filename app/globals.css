@@ -8,13 +8,20 @@
   padding: 0;
 }
 
-body {
+html, body {
   margin: 0;
   padding: 0;
+  width: 100%;
   font-family: 'Poppins', 'Inter', sans-serif;
-  background: #121212;
+  background: #0a0a0a;
   color: #fff;
   overflow-x: hidden;
+}
+
+/* Full width container for mobile */
+#__next, [id^="__next"] {
+  width: 100%;
+  max-width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {

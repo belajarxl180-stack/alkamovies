@@ -26,9 +26,9 @@ export default function VideoCard({ video, onClick }) {
         </div>
       </div>
 
-      {/* Caption MINI - Putih Saja */}
-      <div className="px-1.5 py-1 bg-black">
-        <p className="text-white text-[9px] leading-tight line-clamp-1 opacity-80">
+      {/* Caption - Readable Size */}
+      <div className="px-2 py-1.5 bg-[#0a0a0a]">
+        <p className="text-white text-xs sm:text-sm font-medium leading-snug line-clamp-1">
           {video.snippet.title}
         </p>
       </div>
