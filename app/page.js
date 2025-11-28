@@ -166,26 +166,47 @@ export default function Home() {
         </div>
       )}
 
-      {/* Header with Horror Title */}
+      {/* Header with Horror Title - With Background */}
       <div className="relative z-10 pt-8 sm:pt-12 pb-6 px-3 sm:px-4">
-        <div className="w-full max-w-7xl mx-auto text-center">
-          <h1 className="font-nosifer text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-2"
+        {/* Background Image Overlay */}
+        <div className="absolute inset-0 opacity-10 bg-cover bg-center" 
           style={{
-            color: '#DC143C',
-            letterSpacing: '0.08em',
-            textShadow: `
-              0 0 10px rgba(220, 20, 60, 0.8),
-              0 0 20px rgba(220, 20, 60, 0.6),
-              0 0 30px rgba(255, 0, 0, 0.4),
-              0 0 40px rgba(139, 0, 0, 0.3),
-              2px 2px 4px rgba(0, 0, 0, 0.9),
-              0 -2px 8px rgba(220, 20, 60, 0.5)
-            `,
-            filter: 'drop-shadow(0 2px 10px rgba(220, 20, 60, 0.5))',
-            WebkitTextStroke: '1px rgba(139, 0, 0, 0.3)'
+            backgroundImage: 'url(https://upload.wikimedia.org/wikipedia/id/c/c9/Poster_Kuntilanak_3.jpg)',
+            filter: 'blur(8px) brightness(0.5)'
           }}>
+        </div>
+        
+        <div className="relative w-full max-w-7xl mx-auto text-center">
+          {/* THE - Small text above */}
+          <div className="font-serif text-lg sm:text-2xl md:text-3xl mb-1 tracking-widest"
+            style={{
+              color: '#DC143C',
+              textShadow: '0 0 10px rgba(220, 20, 60, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
+              fontWeight: '300',
+              letterSpacing: '0.3em'
+            }}>
+            THE
+          </div>
+          
+          {/* KARANG JIWO - Main title */}
+          <h1 className="font-nosifer text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-2"
+            style={{
+              color: '#DC143C',
+              letterSpacing: '0.08em',
+              textShadow: `
+                0 0 10px rgba(220, 20, 60, 0.8),
+                0 0 20px rgba(220, 20, 60, 0.6),
+                0 0 30px rgba(255, 0, 0, 0.4),
+                0 0 40px rgba(139, 0, 0, 0.3),
+                2px 2px 4px rgba(0, 0, 0, 0.9),
+                0 -2px 8px rgba(220, 20, 60, 0.5)
+              `,
+              filter: 'drop-shadow(0 2px 10px rgba(220, 20, 60, 0.5))',
+              WebkitTextStroke: '1px rgba(139, 0, 0, 0.3)'
+            }}>
             KARANG JIWO
           </h1>
+          
           <p className="text-gray-400 text-xs sm:text-sm font-light tracking-wide">
             Portal Misteri & Penampakan
           </p>
