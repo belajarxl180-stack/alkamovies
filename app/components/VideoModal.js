@@ -59,20 +59,11 @@ export default function VideoModal({ video, onClose }) {
           ></iframe>
         </div>
 
-        {/* Video Info - Hidden in landscape mode on mobile */}
-        <div className="p-4 sm:p-6 bg-[#1a1a1a] flex-1 overflow-y-auto
-          portrait:block landscape:hidden sm:block">
-          <h2 className="text-base sm:text-lg md:text-xl font-semibold text-white mb-2 leading-snug">
+        {/* Video Info - Minimal Title Only */}
+        <div className="px-3 py-2 bg-[#1a1a1a] landscape:hidden">
+          <h2 className="text-xs sm:text-sm text-white font-medium line-clamp-1 leading-tight">
             {video.snippet.title}
           </h2>
-          <p className="text-[#ff4d4d] text-sm sm:text-base font-medium mb-3">
-            {video.snippet.channelTitle}
-          </p>
-          {video.snippet.description && (
-            <p className="text-gray-400 text-sm sm:text-base leading-relaxed line-clamp-4">
-              {video.snippet.description}
-            </p>
-          )}
         </div>
       </div>
     </div>
