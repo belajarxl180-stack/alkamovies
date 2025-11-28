@@ -1,3 +1,6 @@
+// Cache for 1 hour to save quota
+export const revalidate = 3600; // 1 hour in seconds
+
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const query = searchParams.get("q") || "penampakan hantu";
