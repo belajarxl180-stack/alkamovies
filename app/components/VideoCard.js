@@ -28,9 +28,9 @@ export default function VideoCard({ video, onClick }) {
         </div>
       </div>
 
-      {/* Title Only - Bold & Compact */}
-      <div className="p-2 bg-[#1a1a1a]">
-        <h3 className="text-white text-xs font-bold line-clamp-2 leading-tight">
+      {/* Title Only - Bold & Compact - 1 Line on Mobile */}
+      <div className="px-2 py-1.5 bg-[#1a1a1a]">
+        <h3 className="text-white text-[10px] sm:text-xs font-bold line-clamp-1 sm:line-clamp-2 leading-tight">
           {video.snippet.title}
         </h3>
       </div>
