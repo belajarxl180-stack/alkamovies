@@ -23,32 +23,34 @@ export default function VideoModal({ video, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black animate-fadeIn overflow-y-auto"
+      className="fixed inset-0 z-50 bg-black animate-fadeIn flex items-center justify-center p-0 sm:p-4"
       onClick={onClose}
     >
-      {/* Modal Container - Fullscreen on Mobile, Centered on Desktop */}
+      {/* Modal Container - Better Spacing */}
       <div
-        className="relative w-full h-full sm:h-auto sm:max-w-6xl sm:mx-auto sm:my-8 
-        bg-black sm:bg-[#1a1a1a] sm:rounded-lg overflow-hidden shadow-2xl animate-scaleIn
-        flex flex-col"
+        className="relative w-full max-w-full sm:max-w-6xl bg-black sm:rounded-lg 
+        overflow-hidden shadow-2xl animate-scaleIn flex flex-col"
+        style={{
+          marginTop: 'env(safe-area-inset-top, 40px)',
+          maxHeight: 'calc(100vh - 80px)'
+        }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 z-20 w-10 h-10 rounded-full 
-          bg-black/80 hover:bg-[#ff4d4d] transition-all duration-200 flex items-center
-          justify-center text-white text-2xl backdrop-blur-sm shadow-lg"
+          className="absolute top-2 right-2 z-20 w-10 h-10 rounded-full 
+          bg-black/90 hover:bg-[#ff4d4d] transition-all duration-200 flex items-center
+          justify-center text-white text-2xl backdrop-blur-sm shadow-xl"
           aria-label="Close"
         >
           ×
         </button>
 
-        {/* Video Player - Fullscreen 16:9 with Landscape Support */}
+        {/* Video Player - Centered 16:9 */}
         <div className="relative w-full bg-black" 
           style={{
-            paddingTop: '56.25%',
-            maxHeight: '100vh'
+            paddingTop: '56.25%'
           }}>
           <iframe
             src={`https://www.youtube.com/embed/${video.id.videoId}?autoplay=1&rel=0&modestbranding=1`}
@@ -59,9 +61,9 @@ export default function VideoModal({ video, onClose }) {
           ></iframe>
         </div>
 
-        {/* Video Info - Minimal Title Only */}
-        <div className="px-3 py-2 bg-[#1a1a1a] landscape:hidden">
-          <h2 className="text-xs sm:text-sm text-white font-medium line-clamp-1 leading-tight">
+        {/* Video Info - Readable Caption */}
+        <div className="px-4 py-3 bg-[#0a0a0a] landscape:hidden">
+          <h2 className="text-sm sm:text-base text-white font-semibold line-clamp-2 leading-snug">
             {video.snippet.title}
           </h2>
         </div>
