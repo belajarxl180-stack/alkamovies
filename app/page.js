@@ -20,6 +20,8 @@ export default function Home() {
   const [nextPageToken, setNextPageToken] = useState(null);
   const [hasMore, setHasMore] = useState(true);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [showInstallBanner, setShowInstallBanner] = useState(false);
   
   const observer = useRef();
   const lastVideoRef = useCallback(node => {
@@ -82,7 +84,32 @@ export default function Home() {
         .then((registration) => console.log('SW registered:', registration))
         .catch((error) => console.log('SW registration failed:', error));
     }
+
+    // PWA Install Prompt
+    const handleBeforeInstallPrompt = (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+      setShowInstallBanner(true);
+      console.log('Install prompt ready!');
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    };
   }, []);
+
+  const handleInstallClick = async () => {
+    if (!deferredPrompt) return;
+    
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`User response: ${outcome}`);
+    
+    setDeferredPrompt(null);
+    setShowInstallBanner(false);
+  };
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -107,6 +134,37 @@ export default function Home() {
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-horror-orange/5 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-horror-orange/5 rounded-full blur-3xl animate-pulse delay-700"></div>
       </div>
+
+      {/* PWA Install Banner */}
+      {showInstallBanner && (
+        <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#8B0000] to-[#DC143C] 
+          text-white p-3 shadow-lg animate-fadeIn">
+          <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3 flex-1">
+              <span className="text-2xl">📱</span>
+              <div>
+                <p className="font-semibold text-sm">Install Aplikasi KARANG JIWO</p>
+                <p className="text-xs opacity-90">Akses lebih cepat tanpa browser!</p>
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <button
+                onClick={handleInstallClick}
+                className="px-4 py-2 bg-white text-[#8B0000] rounded-lg font-semibold 
+                text-sm hover:bg-gray-100 transition-all"
+              >
+                Install
+              </button>
+              <button
+                onClick={() => setShowInstallBanner(false)}
+                className="px-3 py-2 bg-black/30 rounded-lg text-sm hover:bg-black/50 transition-all"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Header with Horror Title */}
       <div className="relative z-10 pt-6 pb-4 px-4">
