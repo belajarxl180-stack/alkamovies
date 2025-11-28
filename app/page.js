@@ -167,14 +167,24 @@ export default function Home() {
       )}
 
       {/* Header with Horror Title - With Background */}
-      <div className="relative z-10 pt-8 sm:pt-12 pb-6 px-3 sm:px-4">
-        {/* Background Image Overlay */}
-        <div className="absolute inset-0 opacity-10 bg-cover bg-center" 
+      <div className="relative z-10 pt-8 sm:pt-12 pb-8 px-3 sm:px-4 overflow-hidden">
+        {/* Horror Pattern Background */}
+        <div className="absolute inset-0 opacity-30" 
           style={{
-            backgroundImage: 'url(https://upload.wikimedia.org/wikipedia/id/c/c9/Poster_Kuntilanak_3.jpg)',
-            filter: 'blur(8px) brightness(0.5)'
+            backgroundImage: `
+              radial-gradient(circle at 20% 50%, rgba(139, 0, 0, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(220, 20, 60, 0.2) 0%, transparent 50%),
+              linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%)
+            `,
+            backgroundSize: 'cover'
           }}>
         </div>
+        
+        {/* Creepy Vignette */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60"></div>
+        <div className="absolute inset-0" style={{
+          boxShadow: 'inset 0 0 100px rgba(0, 0, 0, 0.8), inset 0 0 50px rgba(139, 0, 0, 0.3)'
+        }}></div>
         
         <div className="relative w-full max-w-7xl mx-auto text-center">
           {/* THE - Small text above */}
