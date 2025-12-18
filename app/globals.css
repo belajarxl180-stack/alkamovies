@@ -62,6 +62,16 @@ input:focus, button:focus {
   background: linear-gradient(180deg, #ff0a16, #e50914);
 }
 
+/* Hide scrollbar for categories but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* ===== APP CONTAINER ===== */
 .app {
   min-height: 100vh;
