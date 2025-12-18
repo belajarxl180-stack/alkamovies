@@ -223,51 +223,46 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Search Bar - Improved Design */}
-      <div className="relative z-10 px-4 sm:px-6 mb-8">
-        <div className="w-full max-w-4xl mx-auto">
-          <form onSubmit={handleSearch} className="relative">
-            <div className="relative">
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Cari video horror, penampakan, atau misteri..."
-                className="w-full px-5 py-4 pr-32 bg-[#1a1a1a]/90 backdrop-blur-sm border-2 border-[#333] 
-                rounded-xl text-white text-base placeholder-gray-500 
-                focus:border-[#DC143C] focus:ring-2 focus:ring-[#DC143C]/20 focus:outline-none
-                transition-all duration-300 shadow-lg hover:border-[#444]"
-              />
-              <button
-                type="submit"
-                className="absolute right-2 top-1/2 -translate-y-1/2 
-                px-6 py-2.5 bg-gradient-to-r from-[#DC143C] to-[#8B0000] 
-                rounded-lg font-semibold text-sm
-                hover:from-[#FF1744] hover:to-[#DC143C]
-                transition-all duration-300 shadow-lg
-                hover:shadow-[#DC143C]/50 hover:scale-105
-                active:scale-95"
-              >
-                CARI
-              </button>
-            </div>
+      {/* Search Bar - Compact & Centered */}
+      <div className="relative z-10 px-4 mb-6">
+        <div className="w-full max-w-xl mx-auto">
+          <form onSubmit={handleSearch} className="flex gap-2">
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Cari video..."
+              className="flex-1 px-3 py-2 bg-[#1a1a1a]/90 backdrop-blur-sm border border-[#333] 
+              rounded-lg text-white text-sm placeholder-gray-500 
+              focus:border-[#DC143C] focus:outline-none
+              transition-all duration-300"
+            />
+            <button
+              type="submit"
+              className="px-4 py-2 bg-gradient-to-r from-[#DC143C] to-[#8B0000] 
+              rounded-lg font-semibold text-sm whitespace-nowrap
+              hover:from-[#FF1744] hover:to-[#DC143C]
+              transition-all duration-300"
+            >
+              CARI
+            </button>
           </form>
         </div>
       </div>
 
-      {/* Categories - Improved Design */}
-      <div className="relative z-10 px-4 sm:px-6 mb-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide">
+      {/* Categories - Compact & Centered */}
+      <div className="relative z-10 px-4 mb-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex gap-2 overflow-x-auto pb-3 scrollbar-hide justify-center flex-wrap">
             {CATEGORIES.map((category) => (
               <button
                 key={category.id}
                 onClick={() => handleCategoryClick(category)}
-                className={`px-5 py-2.5 rounded-lg text-sm font-medium whitespace-nowrap 
-                transition-all duration-300
+                className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap 
+                transition-all duration-300 border
                 ${selectedCategory.id === category.id
-                  ? 'bg-gradient-to-r from-[#DC143C] to-[#8B0000] text-white border-[#DC143C] shadow-lg shadow-[#DC143C]/30 scale-105'
-                  : 'bg-[#1a1a1a]/80 backdrop-blur-sm text-gray-300 border-[#333] hover:bg-[#2a2a2a] hover:border-[#DC143C]/50 hover:text-white'
+                  ? 'bg-gradient-to-r from-[#DC143C] to-[#8B0000] text-white border-[#DC143C]'
+                  : 'bg-[#1a1a1a]/80 text-gray-300 border-[#333] hover:bg-[#2a2a2a] hover:border-[#DC143C]/50'
                 }`}
               >
                 {category.name}
