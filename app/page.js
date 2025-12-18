@@ -223,26 +223,25 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Search Bar - Compact & Centered */}
-      <div className="relative z-10 px-4 mb-6">
-        <div className="w-full max-w-xl mx-auto">
+      {/* Search Bar - Mobile Optimized */}
+      <div className="relative z-10 px-3 sm:px-4 mb-4">
+        <div className="w-full max-w-2xl mx-auto">
           <form onSubmit={handleSearch} className="flex gap-2">
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Cari video..."
-              className="flex-1 px-3 py-2 bg-[#1a1a1a]/90 backdrop-blur-sm border border-[#333] 
-              rounded-lg text-white text-sm placeholder-gray-500 
+              className="flex-1 px-3 py-2.5 bg-[#1a1a1a]/90 backdrop-blur-sm border border-[#333] 
+              rounded-lg text-white text-sm placeholder-gray-400 
               focus:border-[#DC143C] focus:outline-none
-              transition-all duration-300"
+              transition-all duration-200"
             />
             <button
               type="submit"
-              className="px-4 py-2 bg-gradient-to-r from-[#DC143C] to-[#8B0000] 
+              className="px-5 py-2.5 bg-gradient-to-r from-[#DC143C] to-[#8B0000] 
               rounded-lg font-semibold text-sm whitespace-nowrap
-              hover:from-[#FF1744] hover:to-[#DC143C]
-              transition-all duration-300"
+              active:scale-95 transition-transform duration-200"
             >
               CARI
             </button>
@@ -250,19 +249,19 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Categories - Compact & Centered */}
-      <div className="relative z-10 px-4 mb-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex gap-2 overflow-x-auto pb-3 scrollbar-hide justify-center flex-wrap">
+      {/* Categories - Mobile Scroll */}
+      <div className="relative z-10 px-3 sm:px-4 mb-4">
+        <div className="w-full max-w-7xl mx-auto overflow-hidden">
+          <div className="flex gap-2 overflow-x-auto pb-3 scrollbar-hide">
             {CATEGORIES.map((category) => (
               <button
                 key={category.id}
                 onClick={() => handleCategoryClick(category)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap 
-                transition-all duration-300 border
+                className={`px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap 
+                transition-all duration-200 border flex-shrink-0
                 ${selectedCategory.id === category.id
-                  ? 'bg-gradient-to-r from-[#DC143C] to-[#8B0000] text-white border-[#DC143C]'
-                  : 'bg-[#1a1a1a]/80 text-gray-300 border-[#333] hover:bg-[#2a2a2a] hover:border-[#DC143C]/50'
+                  ? 'bg-gradient-to-r from-[#DC143C] to-[#8B0000] text-white border-[#DC143C] shadow-md'
+                  : 'bg-[#1a1a1a]/80 text-gray-300 border-[#333] active:bg-[#2a2a2a]'
                 }`}
               >
                 {category.name}

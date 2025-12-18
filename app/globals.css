@@ -66,10 +66,22 @@ input:focus, button:focus {
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+/* Mobile touch optimization */
+@media (max-width: 640px) {
+  button {
+    -webkit-tap-highlight-color: rgba(220, 20, 60, 0.2);
+  }
+  
+  input {
+    font-size: 16px !important; /* Prevent zoom on iOS */
+  }
 }
 
 /* ===== APP CONTAINER ===== */
