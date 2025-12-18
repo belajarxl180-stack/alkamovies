@@ -157,9 +157,7 @@ export async function GET(request) {
 
     return Response.json(data);
   } catch (error) {
-    return Response.json(
-      { error: "Internal server error", message: error.message },
-      { status: 500 }
-    );
+    console.error("⚠️ Fetch error, using fallback data:", error.message);
+    return Response.json(FALLBACK_VIDEOS);
   }
 }
