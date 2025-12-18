@@ -122,10 +122,10 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-horror-black text-white">
+    <div className="min-h-screen bg-horror-black text-white" style={{ width: '100%', overflowX: 'hidden' }}>
       
       {/* Animated Background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-horror-orange/5 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-horror-orange/5 rounded-full blur-3xl animate-pulse delay-700"></div>
       </div>
