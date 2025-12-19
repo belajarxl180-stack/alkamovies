@@ -6,10 +6,11 @@ const nextConfig = {
     domains: ['i.ytimg.com'],
     unoptimized: true,
   },
-  // Ensure Tailwind CSS is processed
-  webpack: (config) => {
-    return config;
-  },
+  // Force CSS optimization
+  productionBrowserSourceMaps: false,
+  compress: true,
+  poweredByHeader: false,
+  generateEtags: true,
 }
 
 module.exports = nextConfig
