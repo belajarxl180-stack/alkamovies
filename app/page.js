@@ -4,12 +4,12 @@ import VideoCard from "./components/VideoCard";
 import VideoModal from "./components/VideoModal";
 
 const CATEGORIES = [
-  { id: "penampakan", name: "�️ Penampakan", query: "penampakan hantu nyata" },
-  { id: "mistis", name: "�️ Mistis", query: "tempat angker indonesia" },
-  { id: "urban", name: "� Urban Legend", query: "urban legend seram" },
-  { id: "paranormal", name: "🔮 Paranormal", query: "paranormal indonesia" },
-  { id: "pocong", name: "� Pocong & Kuntilanak", query: "pocong kuntilanak" },
-  { id: "true", name: "📹 Caught on Camera", query: "ghost caught on camera" },
+  { id: "penampakan", name: "👻 Penampakan", query: "penampakan hantu nyata indonesia seram" },
+  { id: "mistis", name: "🏚️ Mistis", query: "tempat angker mistis indonesia horor" },
+  { id: "urban", name: "🌃 Urban Legend", query: "urban legend seram indonesia horor" },
+  { id: "paranormal", name: "🔮 Paranormal", query: "paranormal indonesia misteri horor" },
+  { id: "pocong", name: "👤 Pocong & Kuntilanak", query: "pocong kuntilanak indonesia seram" },
+  { id: "true", name: "📹 Caught on Camera", query: "hantu terekam kamera indonesia nyata" },
 ];
 
 export default function Home() {

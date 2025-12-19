@@ -129,8 +129,8 @@ export async function GET(request) {
     return Response.json(FALLBACK_VIDEOS);
   }
 
-  // Simplified URL - remove videoDuration parameter that might cause issues
-  let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=${maxResults}&q=${encodeURIComponent(query)}&key=${apiKey}`;
+  // Build YouTube API URL with region code for Indonesian content
+  let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=${maxResults}&q=${encodeURIComponent(query)}&regionCode=ID&relevanceLanguage=id&safeSearch=none&key=${apiKey}`;
   
   if (pageToken) {
     url += `&pageToken=${pageToken}`;
