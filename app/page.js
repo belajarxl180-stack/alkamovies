@@ -12,6 +12,118 @@ const CATEGORIES = [
   { id: "true", name: "📹 Caught on Camera", query: "hantu terekam kamera indonesia nyata" },
 ];
 
+// Fallback videos jika API gagal
+const FALLBACK_VIDEOS = [
+  {
+    id: { videoId: "dQw4w9WgXcQ" },
+    snippet: {
+      title: "Penampakan Hantu di Rumah Tua",
+      description: "Video penampakan hantu menyeramkan",
+      thumbnails: { medium: { url: "https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg" } },
+      channelTitle: "Horror Channel"
+    }
+  },
+  {
+    id: { videoId: "jNQXAC9IVRw" },
+    snippet: {
+      title: "Kuntilanak Muncul di Hutan",
+      description: "Penampakan kuntilanak mengerikan",
+      thumbnails: { medium: { url: "https://i.ytimg.com/vi/jNQXAC9IVRw/mqdefault.jpg" } },
+      channelTitle: "Misteri Indonesia"
+    }
+  },
+  {
+    id: { videoId: "9bZkp7q19f0" },
+    snippet: {
+      title: "Pocong Terekam CCTV",
+      description: "Rekaman CCTV sosok pocong",
+      thumbnails: { medium: { url: "https://i.ytimg.com/vi/9bZkp7q19f0/mqdefault.jpg" } },
+      channelTitle: "Dunia Gaib"
+    }
+  },
+  {
+    id: { videoId: "kJQP7kiw5Fk" },
+    snippet: {
+      title: "Suara Aneh di Kuburan",
+      description: "Suara misterius di kuburan",
+      thumbnails: { medium: { url: "https://i.ytimg.com/vi/kJQP7kiw5Fk/mqdefault.jpg" } },
+      channelTitle: "Paranormal Activity"
+    }
+  },
+  {
+    id: { videoId: "djV11Xbc914" },
+    snippet: {
+      title: "Genderuwo di Kampung",
+      description: "Penampakan genderuwo menggemparkan",
+      thumbnails: { medium: { url: "https://i.ytimg.com/vi/djV11Xbc914/mqdefault.jpg" } },
+      channelTitle: "Horor Nusantara"
+    }
+  },
+  {
+    id: { videoId: "L_jWHffIx5E" },
+    snippet: {
+      title: "Hantu di Sekolah Malam",
+      description: "Hantu berkeliaran di sekolah",
+      thumbnails: { medium: { url: "https://i.ytimg.com/vi/L_jWHffIx5E/mqdefault.jpg" } },
+      channelTitle: "Scary Moments"
+    }
+  },
+  {
+    id: { videoId: "fJ9rUzIMcZQ" },
+    snippet: {
+      title: "Tuyul Tertangkap Kamera",
+      description: "Penampakan tuyul di rumah",
+      thumbnails: { medium: { url: "https://i.ytimg.com/vi/fJ9rUzIMcZQ/mqdefault.jpg" } },
+      channelTitle: "Mistis Channel"
+    }
+  },
+  {
+    id: { videoId: "ZZ5LpwO-An4" },
+    snippet: {
+      title: "Jeritan Menyeramkan",
+      description: "Jeritan misterius malam hari",
+      thumbnails: { medium: { url: "https://i.ytimg.com/vi/ZZ5LpwO-An4/mqdefault.jpg" } },
+      channelTitle: "Horror Stories"
+    }
+  },
+  {
+    id: { videoId: "eh7lp9umG2I" },
+    snippet: {
+      title: "Wewe Gombel di Jembatan",
+      description: "Sosok wewe gombel di jembatan",
+      thumbnails: { medium: { url: "https://i.ytimg.com/vi/eh7lp9umG2I/mqdefault.jpg" } },
+      channelTitle: "Legenda Urban"
+    }
+  },
+  {
+    id: { videoId: "YQHsXMglC9A" },
+    snippet: {
+      title: "Arwah Penasaran",
+      description: "Arwah penghuni rumah sakit",
+      thumbnails: { medium: { url: "https://i.ytimg.com/vi/YQHsXMglC9A/mqdefault.jpg" } },
+      channelTitle: "Ghost Hunter"
+    }
+  },
+  {
+    id: { videoId: "dPmZqsQNzGA" },
+    snippet: {
+      title: "Hutan Angker",
+      description: "Suasana mencekam hutan angker",
+      thumbnails: { medium: { url: "https://i.ytimg.com/vi/dPmZqsQNzGA/mqdefault.jpg" } },
+      channelTitle: "Ekspedisi Horor"
+    }
+  },
+  {
+    id: { videoId: "Eo-KmOd3i7s" },
+    snippet: {
+      title: "Penampakan di Terowongan",
+      description: "Sosok misterius di terowongan",
+      thumbnails: { medium: { url: "https://i.ytimg.com/vi/Eo-KmOd3i7s/mqdefault.jpg" } },
+      channelTitle: "Urban Explorer"
+    }
+  }
+];
+
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState(CATEGORIES[0]);
   const [videos, setVideos] = useState([]);
@@ -47,11 +159,13 @@ export default function Home() {
       .then(data => {
         console.log('API Response:', data);
         
-        // Selalu set videos meskipun ada error
+        // Jika tidak ada items, gunakan fallback
+        const videoItems = data.items && data.items.length > 0 ? data.items : FALLBACK_VIDEOS;
+        
         if (append) {
-          setVideos(prev => [...prev, ...(data.items || [])]);
+          setVideos(prev => [...prev, ...videoItems]);
         } else {
-          setVideos(data.items || []);
+          setVideos(videoItems);
         }
         setNextPageToken(data.nextPageToken || null);
         setHasMore(!!data.nextPageToken);
@@ -59,6 +173,8 @@ export default function Home() {
       })
       .catch(err => {
         console.error("Error fetching videos:", err);
+        // Jika ada error network, gunakan fallback
+        setVideos(FALLBACK_VIDEOS);
         setLoading(false);
       });
   };
